@@ -1,4 +1,7 @@
+const params = new URLSearchParams(window.location.search);
+const id = params.get("phoneId");
 const URL = "https://striveschool-api.herokuapp.com/api/product/";
+
 const APY_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE0NzlmYzFjMjUwNDAwMTUxYWI2NTIiLCJpYXQiOjE3NDYxNzI0MTIsImV4cCI6MTc0NzM4MjAxMn0.1Dju6Fggu44sjbpV_zUO5Dr0iwLbi8aDcjr6lub0Bxo";
 
@@ -39,7 +42,7 @@ const dataProducts = () => {
         const divCard = document.createElement("div");
         divCard.className = "card text-dark border-1 d-flex flex-column";
         divCard.style.maxWidth = " 18rem";
-        
+
         //IMG
         const img = document.createElement("img");
         img.src = items.imageUrl;
@@ -57,11 +60,17 @@ const dataProducts = () => {
         p.className = "card-text";
         p.innerHTML = items.description;
         const a = document.createElement("a");
-        a.href = `./details.html?phoneId=${items._id}`;
+        a.href = `./backoffice.html?phoneId=${items._id}`;
         a.className = "btn btn-warning mt-auto";
         a.innerHTML = "Modifica";
+        const buttonView = document.createElement("button");
+        buttonView.className = "btn btn-primary mt-3";
+        buttonView.innerText = "Scopri di più";
+        buttonView.addEventListener("click", () => {
+          window.location.assign(`./details.html?phoneId=${items._id}`);
+        });
 
-        divBody.append(h5, p, a);
+        divBody.append(h5, p, a, buttonView);
 
         divCard.append(img, divBody);
         divCol.appendChild(divCard);

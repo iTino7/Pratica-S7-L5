@@ -36,18 +36,8 @@ fetch(URL, {
     const p = document.createElement("p");
     p.className = "card-text";
     p.innerText = data.description;
-    //BUTTON-CARD-BODY
-    const buttonMod = document.createElement("button");
-    buttonMod.className = "btn btn-warning";
-    buttonMod.addEventListener("click", () => {
-      window.location.assign("./backoffice.html?phoneId=" + id);
-    });
-    buttonMod.innerText = "Modifica prodotto";
-    const buttonView = document.createElement("button");
-    buttonView.className = "btn btn-primary mt-3";
-    buttonView.innerText = "Scopri di più";
 
-    cardBody.append(h5, p, buttonMod, buttonView);
+    cardBody.append(h5, p);
     cardContainer.append(img, cardBody);
     container.appendChild(cardContainer);
   })
