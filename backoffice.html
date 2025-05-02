@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <title>Backoffice</title>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">CRUDAZON</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Backoffice</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./homepage.html">Homepage</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- FORM -->
+
+    <div class="container">
+      <form id="backOffice">
+        <h1 class=" titleOffice text-center mt-5 display-5 fw-bold fs-1 text-primary"></h1>
+        <h3 class="subTitle d-inline-block"></h3>
+        <div class="row align-content-center mt-3">
+          <div class="col-12 col-md-4">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nome</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                aria-describedby="name"
+                required
+                placeholder="Inserisci il modello del telefono..."
+              />
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="mb-3">
+              <label for="description" class="form-label">Descrizione</label>
+              <input
+                type="text"
+                class="form-control"
+                id="description"
+                aria-describedby="description"
+                placeholder="Inserisci la descrizione del telefono..."
+                required
+              />
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="mb-3">
+              <label for="brand" class="form-label">Brand</label>
+              <input
+                type="text"
+                class="form-control"
+                id="brand"
+                aria-describedby="brand"
+                placeholder="Inserisci il brand del telefono..."
+                required
+              />
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="mb-3">
+              <label for="imageUrl" class="form-label">Immagine</label>
+              <input
+                type="text"
+                class="form-control"
+                id="imageUrl"
+                aria-describedby="imageUrl"
+                placeholder="Inserisci l'immagine url del modello..."
+                required
+              />
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="mb-3">
+              <label for="price" class="form-label">Prezzo</label>
+              <input
+                type="number"
+                class="form-control"
+                id="price"
+                aria-describedby="price"
+                required
+              />
+            </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-success">Salva</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/backoffice.js"></script>
+  </body>
+</html>
