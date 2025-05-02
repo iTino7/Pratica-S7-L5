@@ -12,10 +12,33 @@ const method = id ? "PUT" : "POST";
 window.onload = () => {
   const subTitle = document.querySelector(".subTitle");
   const title = document.querySelector(".titleOffice");
+  const buttonDelete = document.getElementById("buttonDelete");
+  buttonDelete.addEventListener("click", () => {
+    fetch(URL, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${APY_KEY}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((resp) => {
+        if (resp.ok) {
+          alert("Hai eliminato correttamente il prodotto");
+          window.location.assign("./backoffice.html");
+        }
+      })
+      .catch((error) => console.log(error));
+  });
+  const buttonReset = document.getElementById("buttonReset");
+  buttonReset.addEventListener("click", () => {
+    form.reset();
+  });
 
   if (id) {
     subTitle.innerText = "-Modifica risorsa";
     title.innerText = "Modifica Prodotto";
+    buttonDelete.className = "d-block ms-2 btn btn-danger ";
+    buttonReset.className = "d-block ms-2 text-white btn btn-warning";
 
     fetch(URL, {
       headers: {
@@ -39,6 +62,8 @@ window.onload = () => {
   } else {
     subTitle.innerHTML = "- Crea risorsa";
     title.innerHTML = "Crea Prodotto";
+    buttonDelete.className = "d-none";
+    buttonReset.className = "d-none";
   }
 };
 
@@ -46,7 +71,6 @@ const form = document.getElementById("backOffice");
 
 form.onsubmit = (e) => {
   e.preventDefault();
-
   const nameInput = document.getElementById("name");
   const descriptionInput = document.getElementById("description");
   const brandInput = document.getElementById("brand");

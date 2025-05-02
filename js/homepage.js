@@ -2,7 +2,17 @@ const URL = "https://striveschool-api.herokuapp.com/api/product/";
 const APY_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE0NzlmYzFjMjUwNDAwMTUxYWI2NTIiLCJpYXQiOjE3NDYxNzI0MTIsImV4cCI6MTc0NzM4MjAxMn0.1Dju6Fggu44sjbpV_zUO5Dr0iwLbi8aDcjr6lub0Bxo";
 
+const isLoad = (bool) => {
+  const loading = document.querySelector(".spinner-grow");
+  if (bool) {
+    loading.classList.remove("d-none");
+  } else {
+    loading.classList.add("d-none");
+  }
+};
+
 const dataProducts = () => {
+  isLoad(true);
   fetch(URL, {
     headers: {
       Authorization: `Bearer ${APY_KEY}`,
@@ -27,13 +37,15 @@ const dataProducts = () => {
 
         //DIV-CARD
         const divCard = document.createElement("div");
-        divCard.className = "card text-dark border-1 h-100 d-flex flex-column";
+        divCard.className = "card text-dark border-1 d-flex flex-column";
         divCard.style.maxWidth = " 18rem";
+        
         //IMG
         const img = document.createElement("img");
         img.src = items.imageUrl;
         img.className = "card-img-top";
         img.alt = items.name;
+        img.style.height = "200px";
 
         //CARD-BODY
         const divBody = document.createElement("div");
@@ -56,7 +68,10 @@ const dataProducts = () => {
         containerCard.appendChild(divCol);
       });
     })
-    .catch((error) => console.log(error));
+    .catch((error) => console.log(error))
+    .finally(() => {
+      isLoad(false);
+    });
 };
 
 window.onload = () => {

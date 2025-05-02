@@ -46,8 +46,11 @@
 
     <div class="container">
       <form id="backOffice">
-        <h1 class=" titleOffice text-center mt-5 display-5 fw-bold fs-1 text-primary"></h1>
+        <h1
+          class="titleOffice text-center mt-5 display-5 fw-bold fs-1 text-primary"
+        ></h1>
         <h3 class="subTitle d-inline-block"></h3>
+        <div class="d-flex justify-content-center"></div>
         <div class="row align-content-center mt-3">
           <div class="col-12 col-md-4">
             <div class="mb-3">
@@ -115,6 +118,16 @@
           </div>
           <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-success">Salva</button>
+            <button id="buttonDelete" type="button" class="ms-2 btn btn-danger">
+              Delete
+            </button>
+            <button
+              id="buttonReset"
+              type="button"
+              class="text-white ms-2 btn btn-warning"
+            >
+              Reset
+            </button>
           </div>
         </div>
       </form>
